@@ -39,4 +39,10 @@ public class RollTest {
         assertThrows(NullPointerException.class, () -> test(null));
     }
 
+    @Test
+    public void test3() {
+
+        assertThrows(IllegalArgumentException.class, () -> test(-2));
+    }
+
 }
