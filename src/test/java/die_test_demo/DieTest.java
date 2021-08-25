@@ -1,7 +1,12 @@
 package die_test_demo;
 
 import die_demo.Die;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -64,6 +69,38 @@ class DieTest {
         } finally {
             // then
             assertEquals(expectedException, actualException);
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {6, 20, 5000})
+    public void testRollWithValueSource(int dieFace) {
+
+        Die die = new Die(dieFace);
+        die.roll();
+
+        Integer actualFaceValue = die.getCurrentFaceValue();
+
+        System.out.println("Running the test for dieFace = " + dieFace + " Rolled value = " + actualFaceValue);
+
+        if (actualFaceValue < 1 || actualFaceValue > dieFace) {
+            Assertions.fail("Die roll out of range");
+        }
+    }
+
+    @ParameterizedTest
+    @EnumSource(CommonDieFaces.class)
+    public void testRollWithEnumSource(CommonDieFaces dieFace) {
+
+        Die die = new Die(dieFace.getValue());
+        die.roll();
+
+        Integer actualFaceValue = die.getCurrentFaceValue();
+
+        System.out.println("Running the test for dieFace = " + dieFace.getValue() + " Rolled value = " + actualFaceValue);
+
+        if (actualFaceValue < 1 || actualFaceValue > dieFace.getValue()) {
+            Assertions.fail("Die roll out of range");
         }
     }
 
