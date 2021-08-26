@@ -1,6 +1,5 @@
-package calculator_test_demo;
+package calculator_demo;
 
-import calculator_demo.Calculator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,13 +9,13 @@ class CalculatorTest {
 
     @Test
     @DisplayName("Add two numbers")
-    void add() {
+    public void add() {
         assertEquals(4, Calculator.add(2, 2));
     }
 
     @Test
     @DisplayName("Multiply two numbers")
-    void multiply() {
+    public void multiply() {
         assertAll(() -> assertEquals(4, Calculator.multiply(2, 2)),
                 () -> assertEquals(-4, Calculator.multiply(2, -2)),
                 () -> assertEquals(4, Calculator.multiply(-2, -2)),

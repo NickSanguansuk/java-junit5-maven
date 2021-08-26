@@ -1,10 +1,8 @@
-package die_test_demo;
+package die_demo;
 
-import die_demo.Die;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -13,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DieTest {
 
     @Test
-    void testConstructor() {
+    public void testConstructor() {
         // given
         Integer expectedFaceValue = null;
         Integer expectedNumberOfFaces = null;
@@ -29,15 +27,15 @@ class DieTest {
     }
 
     @Test
-    void getNumberOffFaces() {
+    public void getNumberOffFaces() {
     }
 
     @Test
-    void getCurrentFaceValue() {
+    public void getCurrentFaceValue() {
     }
 
     @Test
-    void roll() {
+    public void roll() {
         // given
         Integer numberOfFaces = 2;
         Integer unexpected = null;
@@ -53,7 +51,7 @@ class DieTest {
 
     // manual way (not a good way)
     @Test
-    void testRollException() {
+    public void testRollException() {
         // given
         Boolean expectedException = true;
         Integer numberOfFaces = -3;

@@ -1,4 +1,4 @@
-package die_test_demo;
+package die_demo;
 
 public class NullaryConstructorTest {
 }

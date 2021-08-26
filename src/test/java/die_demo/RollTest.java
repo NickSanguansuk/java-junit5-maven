@@ -1,6 +1,5 @@
-package die_test_demo;
+package die_demo;
 
-import die_demo.Die;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
