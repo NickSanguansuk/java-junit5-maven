@@ -3,6 +3,7 @@ package die_demo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -68,6 +69,17 @@ class DieTest {
             // then
             assertEquals(expectedException, actualException);
         }
+
+        // when2
+        assertThrows(IllegalArgumentException.class, () -> {
+            Die die = new Die(numberOfFaces);
+            die.roll();
+        });
+
+        //assertThrows(NullPointerException.class, () -> {
+        //    Die die = new Die(numberOfFaces);
+        //    die.roll();
+        //});
     }
 
     @ParameterizedTest
@@ -99,6 +111,19 @@ class DieTest {
 
         if (actualFaceValue < 1 || actualFaceValue > dieFace.getValue()) {
             Assertions.fail("Die roll out of range");
+        }
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1,1,2,true","1,1,3,false"})
+    public void testJUnit5CsvParameters(int num1, int num2, int expectedAnswer, boolean veracity) {
+
+        if(veracity) {
+            assertTrue(Math.addExact(num1, num2) == expectedAnswer);
+            System.out.println(num1 + " plus " + num2 + " equals " + expectedAnswer);
+        } else {
+            assertFalse(Math.addExact(num1, num2) == expectedAnswer);
+            System.out.println(num1 + " plus " + num2 + " does not equal " + expectedAnswer);
         }
     }
 
