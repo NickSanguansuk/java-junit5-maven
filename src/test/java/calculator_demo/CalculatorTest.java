@@ -9,13 +9,13 @@ class CalculatorTest {
 
     @Test
     @DisplayName("Add two numbers")
-    public void add() {
+    public void add_twoPositiveNumbers_correct() {
         assertEquals(4, Calculator.add(2, 2));
     }
 
     @Test
     @DisplayName("Multiply two numbers")
-    public void multiply() {
+    public void multiply_twoNumbers_correct() {
         assertAll(() -> assertEquals(4, Calculator.multiply(2, 2)),
                 () -> assertEquals(-4, Calculator.multiply(2, -2)),
                 () -> assertEquals(4, Calculator.multiply(-2, -2)),
